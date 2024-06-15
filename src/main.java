@@ -29,7 +29,18 @@ public class main {
 			}
 
 			if (encontrou) {
-				System.out.print(linha);
+				String[] partes = linha.split(";");
+
+				String cpf = partes[0];
+				String cidadeCirurgia = partes[1];
+				String data = partes[2];
+				String cirurgia = partes[3];
+
+				System.out.print("\nCPF: " + cpf);
+				System.out.print("\nCidade: " + cidadeCirurgia);
+				System.out.print("\nData da Cirurgia: " + data);
+				System.out.print("\nCirurgia: " + cirurgia);
+				System.out.print("\n");
 			} else {
 				System.out.print("Nenhuma consulta marcada para essa cidade.");
 			}
@@ -56,7 +67,18 @@ public class main {
 			}
 
 			if (encontrou) {
-				System.out.print(linha);
+				String[] partes = linha.split(";");
+
+				String cpfPaciente = partes[0];
+				String cidade = partes[1];
+				String data = partes[2];
+				String cirurgia = partes[3];
+
+				System.out.print("\nCPF: " + cpfPaciente);
+				System.out.print("\nCidade: " + cidade);
+				System.out.print("\nData da Cirurgia: " + data);
+				System.out.print("\nCirurgia: " + cirurgia);
+				System.out.print("\n");
 			} else {
 				System.out.print("Nenhuma consulta marcada no CPF: " + cpf);
 			}
@@ -141,12 +163,13 @@ public class main {
 	}
 
 	public static boolean verificarCadastro(String cpf) {
+		boolean encontrou = false;
+
 		try {
 			FileReader fileReader = new FileReader("paciente.txt");
 			BufferedReader reader = new BufferedReader(fileReader);
 
 			String linha;
-			boolean encontrou = false;
 
 			while ((linha = reader.readLine()) != null) {
 				if (linha.contains(cpf)) {
@@ -156,15 +179,11 @@ public class main {
 			}
 
 			reader.close();
-
-			if (encontrou)
-				return true;
-
 		} catch (IOException e) {
 			System.err.println("Erro ao ler o arquivo: " + e.getMessage());
 		}
 
-		return false;
+		return encontrou;
 	}
 
 	public static void Paciente() {
