@@ -109,7 +109,7 @@ public class main {
 		Scanner scanCidade = new Scanner(System.in);
 		String cidade = scanDataConsulta.next();
 
-		System.out.print("\nTipo da Cirurgia: ");
+		System.out.print("\n1- Joelho\n2- Tornozelo\n3- Cotovelo\n4-Ombro\nTipo da Cirurgia: ");
 		Scanner scanTipoCirurgia = new Scanner(System.in);
 		int tipoCirurgia = Integer.parseInt(scanTipoCirurgia.next());
 
